@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": {},
+  "attributes": {
+    "order_number": { "type": "string", "required": true, "unique": true },
+    "customer_name": { "type": "string", "required": true },
+    "customer_phone": { "type": "string" },
+    "customer_email": { "type": "string" },
+    "status": {
+      "type": "enumeration",
+      "default": "pending",
+      "enum": ["pending", "paid", "canceled"]
+    },
+    "total_amount": { "type": "decimal", "min": 0, "default": 0 },
+    "currency": {
+      "type": "enumeration",
+      "default": "RUB",
+      "enum": ["RUB", "KZT", "USD"]
+    },
+    "route": { 
+      "type": "relation", 
+      "relation": "manyToOne", 
+      "target": "api::test2.test2",
+      "inversedBy": "orders"
+    },
+    "payment_id": { "type": "string" }
+  }
+}
+
+

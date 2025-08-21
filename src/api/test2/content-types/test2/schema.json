@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test2s",
+  "info": {
+    "singularName": "test2",
+    "pluralName": "test2s",
+    "displayName": "Test2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "from_station": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::test.test",
+      "inversedBy": "routes_from",
+      "required": true
+    },
+    "to_station": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::test.test",
+      "inversedBy": "routes_to",
+      "required": true
+    },
+    "departure_time": {
+      "type": "datetime",
+      "required": true
+    },
+    "arrival_time": {
+      "type": "datetime",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "currency": {
+      "type": "enumeration",
+      "required": true,
+      "default": "RUB",
+      "enum": [
+        "RUB",
+        "KZT",
+        "USD"
+      ]
+    },
+    "carrier": {
+      "type": "string"
+    },
+    "route_code": {
+      "type": "string"
+    },
+    "source": {
+      "type": "enumeration",
+      "default": "gds",
+      "enum": [
+        "gds",
+        "paybilet"
+      ]
+    },
+    "route_status": {
+      "type": "enumeration",
+      "default": "scheduled",
+      "enum": [
+        "scheduled",
+        "canceled",
+        "sold_out"
+      ]
+    },
+    "seats_available": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "route"
+    }
+  }
+}
