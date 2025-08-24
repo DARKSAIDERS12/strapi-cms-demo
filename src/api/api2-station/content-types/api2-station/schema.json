@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "api2_stations",
+  "info": {
+    "singularName": "api2-station",
+    "pluralName": "api2-stations",
+    "displayName": "API2 Station",
+    "description": "Станции из Paybilet RF Bus API 2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "station_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "coordinates": {
+      "type": "json"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "last_sync": {
+      "type": "datetime"
+    },
+    "mapped_station": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::station-mapping.station-mapping",
+      "mappedBy": "api2_station"
+    }
+  }
+}

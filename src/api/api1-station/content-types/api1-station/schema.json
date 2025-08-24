@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "api1_stations",
+  "info": {
+    "singularName": "api1-station",
+    "pluralName": "api1-stations",
+    "displayName": "API1 Station",
+    "description": "Станции из GDS API 1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "station_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "coordinates": {
+      "type": "json"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "last_sync": {
+      "type": "datetime"
+    },
+    "mapped_station": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::station-mapping.station-mapping",
+      "mappedBy": "api1_station"
+    }
+  }
+}

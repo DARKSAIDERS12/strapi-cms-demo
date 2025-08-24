@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test3s",
+  "info": {
+    "singularName": "test3",
+    "pluralName": "test3s",
+    "displayName": "Test3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "api1_station_id": {
+      "type": "string",
+      "required": true
+    },
+    "api2_station_id": {
+      "type": "string",
+      "required": true
+    },
+    "created_date": {
+      "type": "datetime"
+    }
+  }
+}

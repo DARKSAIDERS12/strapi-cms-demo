@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "station_groups1s",
+  "info": {
+    "singularName": "station-groups1",
+    "pluralName": "station-groups1s",
+    "displayName": "station-groups1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "main_station_id": {
+      "type": "string"
+    },
+    "child_stations": {
+      "type": "json"
+    },
+    "created_date": {
+      "type": "datetime"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "station_groups",
+  "info": {
+    "singularName": "station-group",
+    "pluralName": "station-groups",
+    "displayName": "Station Group",
+    "description": "Группы станций для объединения похожих остановок"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "display_name": {
+      "type": "string",
+      "required": true
+    },
+    "main_station": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::station-mapping.station-mapping"
+    },
+    "stations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::station-mapping.station-mapping",
+      "mappedBy": "group"
+    },
+    "description": {
+      "type": "text"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

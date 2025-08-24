@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "station_mappings",
+  "info": {
+    "singularName": "station-mapping",
+    "pluralName": "station-mappings",
+    "displayName": "Station Mapping",
+    "description": "Сопоставление станций между API 1 и API 2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "display_name": {
+      "type": "string",
+      "required": true
+    },
+    "api1_station": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::api1-station.api1-station",
+      "inversedBy": "mapped_station"
+    },
+    "api2_station": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::api2-station.api2-station",
+      "inversedBy": "mapped_station"
+    },
+    "group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::station-group.station-group",
+      "inversedBy": "stations"
+    },
+    "is_main_station": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "mapping_type": {
+      "type": "enumeration",
+      "enum": ["automatic", "manual"],
+      "default": "automatic"
+    },
+    "confidence_score": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1
+    }
+  }
+}
