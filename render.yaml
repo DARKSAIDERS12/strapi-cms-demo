@@ -1,6 +1,9 @@
+# Strapi CMS Production Configuration
+# IMPORTANT: This service must be created as NEW on Render.com
+# Do not update existing service - create new one!
 services:
   - type: web
-    name: strapi-cms-demo-v2
+    name: strapi-cms-production
     env: node
     buildCommand: npm install
     startCommand: npm run start:prod
