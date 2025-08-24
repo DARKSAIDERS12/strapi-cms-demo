@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: strapi-cms-demo
+    name: strapi-cms-demo-v2
     env: node
     buildCommand: npm install
-    startCommand: ./start.sh
+    startCommand: npm run start:prod
     envVars:
       - key: NODE_ENV
         value: production
