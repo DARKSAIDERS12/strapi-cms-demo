@@ -3,7 +3,7 @@
 # Do not update existing service - create new one!
 services:
   - type: web
-    name: strapi-cms-final-v2
+    name: strapi-cms-final-v3
     env: node
     buildCommand: npm install
     startCommand: npm run start:prod
@@ -13,6 +13,10 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: PORT
+        value: 1337
+      - key: STRAPI_HOST
+        value: 0.0.0.0
+      - key: STRAPI_PORT
         value: 1337
       - key: APP_KEYS
         generateValue: true
