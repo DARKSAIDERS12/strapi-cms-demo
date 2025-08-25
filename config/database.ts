@@ -1,10 +1,10 @@
 export default ({ env }) => {
   // Отладка: выводим значения переменных
-  const dbHost = 'aws-1-ap-northeast-2.pooler.supabase.com';
-  const dbPort = 6543;
-  const dbName = 'postgres';
-  const dbUser = 'postgres.mrcqqqdbfpyufgmochlb';
-  const dbPassword = 'dfrSdcvf!234fg';
+  const dbHost = env('DATABASE_HOST');
+  const dbPort = env.int('DATABASE_PORT');
+  const dbName = env('DATABASE_NAME');
+  const dbUser = env('DATABASE_USERNAME');
+  const dbPassword = env('DATABASE_PASSWORD');
   
   console.log('🔍 Database config debug:');
   console.log('  HOST:', dbHost);
@@ -22,12 +22,7 @@ export default ({ env }) => {
         database: dbName,
         user: dbUser,
         password: dbPassword,
-        ssl: {
-          rejectUnauthorized: false,
-          ca: undefined,
-          key: undefined,
-          cert: undefined,
-        },
+        ssl: env.bool('DATABASE_SSL', false) ? { rejectUnauthorized: false } : false,
         schema: env('DATABASE_SCHEMA', 'public'),
       },
       pool: { min: 2, max: 10 },
