@@ -1,13 +1,27 @@
 export default ({ env }) => {
+  // Отладка: выводим значения переменных
+  const dbHost = env('DATABASE_HOST');
+  const dbPort = env.int('DATABASE_PORT');
+  const dbName = env('DATABASE_NAME');
+  const dbUser = env('DATABASE_USERNAME');
+  const dbPassword = env('DATABASE_PASSWORD');
+  
+  console.log('🔍 Database config debug:');
+  console.log('  HOST:', dbHost);
+  console.log('  PORT:', dbPort);
+  console.log('  NAME:', dbName);
+  console.log('  USER:', dbUser);
+  console.log('  PASSWORD:', dbPassword ? '***' : 'undefined');
+  
   return {
     connection: {
       client: 'postgres',
       connection: {
-        host: env('DATABASE_HOST'),
-        port: env.int('DATABASE_PORT'),
-        database: env('DATABASE_NAME'),
-        user: env('DATABASE_USERNAME'),
-        password: env('DATABASE_PASSWORD'),
+        host: dbHost,
+        port: dbPort,
+        database: dbName,
+        user: dbUser,
+        password: dbPassword,
         ssl: {
           rejectUnauthorized: false,
           ca: undefined,
