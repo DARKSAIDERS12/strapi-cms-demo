@@ -3,7 +3,7 @@
 # Do not update existing service - create new one!
 services:
   - type: web
-    name: strapi-cms-final-v4
+    name: strapi-cms-final-v5
     env: node
     buildCommand: npm install && npm run build
     startCommand: npm run start:prod
@@ -21,12 +21,20 @@ services:
       - key: NODE_OPTIONS
         value: --max-old-space-size=4096
       - key: APP_KEYS
-        generateValue: true
+        value: R2aNe3fnsySed3lEIaN5PA==,bTcFfb/GBjiSOI1AkUMU0A==,tHLPQ9EfugahG8GX0odxDg==,uFL7a1qc3ih/c/LxwmMHmw==
       - key: API_TOKEN_SALT
-        generateValue: true
+        value: BYQAuMQcLiUY+5QwhJMfnA==
       - key: ADMIN_JWT_SECRET
-        generateValue: true
+        value: sUmjjaCtjJmSs46aCDetUQ==
       - key: JWT_SECRET
-        generateValue: true
+        value: 4eiZfV5EWYJeiJn/+xlCZw==
+      - key: TRANSFER_TOKEN_SALT
+        value: BIkKbsDH7/z7p7m9NKev8A==
+      - key: ENCRYPTION_KEY
+        value: dKqGfEB7IakV9uq8IkBflw==
+      - key: DATABASE_CLIENT
+        value: sqlite
+      - key: DATABASE_FILENAME
+        value: .tmp/data.db
     healthCheckPath: /admin
     autoDeploy: true
