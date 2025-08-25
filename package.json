@@ -10,7 +10,7 @@
     "dev": "strapi develop",
     "develop": "strapi develop",
     "start": "strapi start",
-    "start:prod": "strapi build && strapi start",
+    "start:prod": "NODE_OPTIONS='--max-old-space-size=4096' strapi build && NODE_OPTIONS='--max-old-space-size=4096' strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
