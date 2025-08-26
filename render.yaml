@@ -7,6 +7,8 @@ services:
     env: node
     buildCommand: npm ci && npm run build
     startCommand: npm start
+    healthCheckPath: /admin
+    healthCheckTimeout: 120
     envVars:
       - key: NODE_ENV
         value: production
@@ -42,5 +44,4 @@ services:
         value: require
       - key: DATABASE_SCHEMA
         value: public
-    healthCheckPath: /admin
     autoDeploy: true
