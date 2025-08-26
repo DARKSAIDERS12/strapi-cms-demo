@@ -4,26 +4,11 @@ meta:
   environment: node
   toolchain:
     name: npm
-    version: 18
+    version: "18"
 build:
-  preBuild:
-  - echo "=== PREBUILD START ==="
-  - pwd
-  - ls -la
-  - echo "=== PREBUILD END ==="
   commands:
-  - echo "=== BUILD START ==="
-  - pwd && ls -la
-  - npm ci
-  - npm run build
-  - echo "=== BUILD END ==="
-  postBuild:
-  - echo "=== POSTBUILD START ==="
-  - pwd
-  - ls -la
-  - echo "=== POSTBUILD END ==="
-  additionalCommands: ""
+    - npm ci
+    - npm run build
 run:
   scriptName: start
   containerPort: 1337
-  command: ""
