@@ -7,10 +7,22 @@ meta:
 name: strapi-cms-demo
 runtime: nodejs18
 build:
+  preBuild:
+    - echo "=== PREBUILD START ==="
+    - pwd
+    - ls -la
+    - echo "=== PREBUILD END ==="
   commands:
+    - echo "=== BUILD START ==="
     - pwd && ls -la
     - npm ci
     - npm run build
+    - echo "=== BUILD END ==="
+  postBuild:
+    - echo "=== POSTBUILD START ==="
+    - pwd
+    - ls -la
+    - echo "=== POSTBUILD END ==="
 run:
   scriptName: start
   containerPort: 1337
