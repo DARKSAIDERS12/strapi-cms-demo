@@ -3,38 +3,44 @@
 # Do not update existing service - create new one!
 services:
   - type: web
-    name: strapi-cms-final-v5
+    name: strapi-cms-demo
     env: node
-    buildCommand: npm install && npm run build
-    startCommand: npm run start:prod
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: HOST
-        value: 0.0.0.0
       - key: PORT
         value: 1337
-      - key: STRAPI_HOST
+      - key: HOST
         value: 0.0.0.0
-      - key: STRAPI_PORT
-        value: 1337
-      - key: NODE_OPTIONS
-        value: --max-old-space-size=4096
       - key: APP_KEYS
         value: R2aNe3fnsySed3lEIaN5PA==,bTcFfb/GBjiSOI1AkUMU0A==,tHLPQ9EfugahG8GX0odxDg==,uFL7a1qc3ih/c/LxwmMHmw==
       - key: API_TOKEN_SALT
         value: BYQAuMQcLiUY+5QwhJMfnA==
       - key: ADMIN_JWT_SECRET
         value: sUmjjaCtjJmSs46aCDetUQ==
-      - key: JWT_SECRET
-        value: 4eiZfV5EWYJeiJn/+xlCZw==
       - key: TRANSFER_TOKEN_SALT
         value: BIkKbsDH7/z7p7m9NKev8A==
       - key: ENCRYPTION_KEY
         value: dKqGfEB7IakV9uq8IkBflw==
       - key: DATABASE_CLIENT
-        value: sqlite
-      - key: DATABASE_FILENAME
-        value: .tmp/data.db
+        value: postgres
+      - key: DATABASE_HOST
+        value: aws-1-ap-northeast-2.pooler.supabase.com
+      - key: DATABASE_PORT
+        value: 6543
+      - key: DATABASE_NAME
+        value: postgres
+      - key: DATABASE_USERNAME
+        value: postgres.mrcqqqdbfpyufgmochlb
+      - key: DATABASE_PASSWORD
+        sync: false
+      - key: DATABASE_SSL
+        value: true
+      - key: DATABASE_SSL_MODE
+        value: require
+      - key: DATABASE_SCHEMA
+        value: public
     healthCheckPath: /admin
     autoDeploy: true
