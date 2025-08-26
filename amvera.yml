@@ -4,47 +4,10 @@ meta:
   toolchain:
     name: npm
     version: "18"
-name: strapi-cms-demo
-runtime: nodejs18
 build:
-  preBuild:
-    - echo "=== PREBUILD START ==="
-    - pwd
-    - ls -la
-    - echo "=== PREBUILD END ==="
   commands:
-    - echo "=== BUILD START ==="
-    - pwd && ls -la
     - npm ci
     - npm run build
-    - echo "=== BUILD END ==="
-  postBuild:
-    - echo "=== POSTBUILD START ==="
-    - pwd
-    - ls -la
-    - echo "=== POSTBUILD END ==="
 run:
   scriptName: start
   containerPort: 1337
-network:
-  ports:
-    - name: http
-      port: 1337
-      public: true
-env:
-  - name: NODE_ENV
-    value: production
-  - name: PORT
-    value: "1337"
-  - name: APP_KEYS
-    value: "k1,k2,k3,k4"
-  - name: API_TOKEN_SALT
-    value: "change_me_secure"
-  - name: ADMIN_JWT_SECRET
-    value: "change_me_secure"
-  - name: JWT_SECRET
-    value: "change_me_secure"
-  - name: DATABASE_CLIENT
-    value: "sqlite"
-  - name: DATABASE_FILENAME
-    value: ".tmp/data.db"
