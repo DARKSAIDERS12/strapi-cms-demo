@@ -1,0 +1,33 @@
+meta:
+  environment: node
+  toolchain: {}
+name: strapi-cms-demo
+runtime: nodejs18
+build:
+  commands:
+    - npm ci
+    - npm run build
+start:
+  command: npm start
+network:
+  ports:
+    - name: http
+      port: 1337
+      public: true
+env:
+  - name: NODE_ENV
+    value: production
+  - name: PORT
+    value: "1337"
+  - name: APP_KEYS
+    value: "k1,k2,k3,k4"
+  - name: API_TOKEN_SALT
+    value: "change_me_secure"
+  - name: ADMIN_JWT_SECRET
+    value: "change_me_secure"
+  - name: JWT_SECRET
+    value: "change_me_secure"
+  - name: DATABASE_CLIENT
+    value: "sqlite"
+  - name: DATABASE_FILENAME
+    value: ".tmp/data.db"
