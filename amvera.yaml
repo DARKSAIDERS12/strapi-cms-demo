@@ -35,7 +35,7 @@ services:
     network:
       ports:
         - name: http
-          port: 3001
+          port: ${PORT}
           public: true
     env:
       - name: NODE_ENV
