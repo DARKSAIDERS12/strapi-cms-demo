@@ -1,7 +1,9 @@
 
 meta:
   environment: node
-  toolchain: {}
+  toolchain:
+    name: npm
+    version: "18"
 name: strapi-cms-demo
 runtime: nodejs18
 build:
@@ -9,8 +11,9 @@ build:
     - pwd && ls -la
     - npm ci
     - npm run build
-start:
-  command: sh -lc "pwd && ls -la && npm start"
+run:
+  scriptName: start
+  containerPort: 1337
 network:
   ports:
     - name: http
