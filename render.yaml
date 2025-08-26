@@ -27,21 +27,7 @@ services:
       - key: ENCRYPTION_KEY
         value: dKqGfEB7IakV9uq8IkBflw==
       - key: DATABASE_CLIENT
-        value: postgres
-      - key: DATABASE_HOST
-        value: aws-1-ap-northeast-2.pooler.supabase.com
-      - key: DATABASE_PORT
-        value: 6543
-      - key: DATABASE_NAME
-        value: postgres
-      - key: DATABASE_USERNAME
-        value: postgres.mrcqqqdbfpyufgmochlb
-      - key: DATABASE_PASSWORD
-        sync: false
-      - key: DATABASE_SSL
-        value: true
-      - key: DATABASE_SSL_MODE
-        value: require
-      - key: DATABASE_SCHEMA
-        value: public
+        value: sqlite
+      - key: DATABASE_FILENAME
+        value: .tmp/data.db
     autoDeploy: true
